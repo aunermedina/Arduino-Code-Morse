@@ -1,0 +1,35 @@
+html, body{
+    color:#666;font-size:14px;
+    background:#fff;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.grid-wrapper {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 1fr 300px 1fr;
+    grid-template-areas:
+        ". alert-system ."
+        ". alert-system ."
+        ". alert-system ."
+}
+
+.alert-system {
+    margin-top: 10px;
+    grid-area: alert-system;}
+
+.help-block {
+    font-size: 10px;
+}
+
+.alert-block {
+    font-size: 10px;
+    color: #FF0000;
+}
+
+.license {
+    padding-top: 50px;
+    font-size: 8px;
+}

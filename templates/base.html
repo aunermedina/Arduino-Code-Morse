@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>DIY Morse code encoder using Arduino/Django</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Simple Python/Django Morse Encoder With Arduino</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                {% if serial_error %}
+                        <p class="alert-block">Problem with serial connection. Is cable connected?</p>{% endif %}
+                <form action="/encode/data/" method="POST">
+                    {% csrf_token %}
+                    <label for="morse">Message to send as morse code.</label>
+                    <input type="text" class='form-control' id='morse' name="msg" placeholder="Enter message ...">
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Send Message</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
